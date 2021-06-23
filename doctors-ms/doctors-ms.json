@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "60d35e6ca18e9b41f11255b5"
+  },
+  "doctor": "Dr. Teste",
+  "crm": "230230",
+  "uf": "TESTING WORLD",
+  "speciality": "Testing things",
+  "createdAt": "2020-02-21T00:00:00Z",
+  "updatedAt": "2020-02-21T00:00:00Z"
+}]
