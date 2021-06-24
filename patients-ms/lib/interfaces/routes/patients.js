@@ -1,3 +1,5 @@
+const Patient = require("../../domain/Patient");
+
 module.exports = (app, repository) => {
   app.get("/patients", async (req, res, next) => {
     const _patients = await repository.getAllPatients();
@@ -12,21 +14,12 @@ module.exports = (app, repository) => {
   });
 
   app.post("/patients", async (req, res, next) => {
-    const name = req.body.name;
-    const cpf = req.body.cpf;
-    const cell = req.body.cell;
-    const email = req.body.email;
-    const sexo = req.body.sexo;
-    const dt_nasc = new Date();
+    const { name, cpf, cell, email, gender } = req.body;
+    const birthDate = new Date();
 
-    const result = await repository.addPatient({
-      name,
-      cpf,
-      cell,
-      email,
-      sexo,
-      dt_nasc
-    });
+    const patientDb = new Patient(name, cpf, cell, email, gender, birthDate)
+
+    const result = await repository.addPatient(patientDb);
     res.status(201).json(result);
   });
 

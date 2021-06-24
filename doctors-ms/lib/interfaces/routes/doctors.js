@@ -1,3 +1,5 @@
+const Doctor = require('../../domain/Doctor');
+
 module.exports = (app, repository) => {
 
   app.get("/doctors", async (req, res, next) => {
@@ -12,22 +14,13 @@ module.exports = (app, repository) => {
   });
 
   app.post("/doctors", async (req, res, next) => {
-    const name = req.body.name;
-    const crm = req.body.crm;
-    const uf = req.body.uf;
-    const speciality = req.body.speciality;
-    const createdAt = req.body.createdAt;
-    const updatedAt = req.body.updatedAt;
+    const { name, crm, uf, speciality } = req.body;
+
+    const doctorDb = new Doctor(name, crm, uf, speciality)
 
     const result = await repository.addDoctor({
-      name,
-      crm,
-      uf,
-      speciality,
-      createdAt,
-      updatedAt
+      doctorDb
     });
-
     res.status(201).json(result);
   });
 

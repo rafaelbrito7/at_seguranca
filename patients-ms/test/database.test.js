@@ -1,5 +1,5 @@
 const { test, expect } = require("@jest/globals");
-const database = require("./database");
+const database = require("../lib/infra/orm/mongoose");
 
 test("Connecting Database", async () => {
   const connection = await database.connect();

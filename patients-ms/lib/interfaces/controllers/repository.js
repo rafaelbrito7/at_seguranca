@@ -1,4 +1,4 @@
-const database = require("../config/database");
+const database = require("../../infra/orm/mongoose");
 const { ObjectId } = require("mongodb");
 
 const collection = "patients-ms";

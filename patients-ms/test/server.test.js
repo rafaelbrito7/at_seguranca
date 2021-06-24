@@ -1,5 +1,5 @@
 const { test, expect } = require('@jest/globals');
-const server = require('./server');
+const server = require('../lib/infra/server/server');
 const request = require('supertest');
 
 const apiMock = jest.fn((app, repository) => {

@@ -1,6 +1,6 @@
 const { test, expect, beforeAll, afterAll } = require("@jest/globals");
-const server = require("../server/server");
-const patients = require("./patients");
+const server = require("../lib/infra/server/server");
+const patients = require("../lib/interfaces/routes/patients");
 const request = require("supertest");
 const repositoryMock = require("../__mocks__/repository");
 

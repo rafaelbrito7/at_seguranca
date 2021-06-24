@@ -1,5 +1,5 @@
 const { test, expect, beforeAll } = require("@jest/globals");
-const repository = require("./repository");
+const repository = require("../lib/interfaces/controllers/repository");
 
 let _patientID = null;
 
